@@ -1146,7 +1146,7 @@ class Client:
 
         content = str(content) if content is not None else None
 
-        if embed is not None:
+        if embed is not None and not isinstance(embed, dict):
             embed = embed.to_dict()
 
         data = yield from self.http.send_message(channel_id, content, guild_id=guild_id, tts=tts, embed=embed)
@@ -2353,7 +2353,7 @@ class Client:
 
         fields['icon'] = icon
         fields['splash'] = splash
-
+        
         try:
             afk_channel = fields.pop('afk_channel')
         except KeyError:
@@ -2363,6 +2363,9 @@ class Client:
                 fields['afk_channel_id'] = afk_channel
             else:
                 fields['afk_channel_id'] = afk_channel.id
+		
+        #if 'afk_channel' in fields:
+        #    fields['afk_channel_id'] = fields['afk_channel'].id
 
         if 'owner' in fields:
             if server.owner != server.me:
