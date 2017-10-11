@@ -137,7 +137,7 @@ You use the :meth:`Client.add_reaction` method.
 
 If you want to use unicode emoji, you must pass a valid unicode code point in a string. In your code, you can write this in a few different ways:
 
-- ``'👍'``
+- ``'??'``
 - ``'\U0001F44D'``
 - ``'\N{THUMBS UP SIGN}'``
 
@@ -218,7 +218,7 @@ one of the following functions:
 - :meth:`Server.get_channel`
 
 If the functions above do not help you, then use of :func:`utils.find` or :func:`utils.get` would serve some use in finding
-specific entities. The documentation for those functions provide specific examples.
+specific entities. The documentation for those functions provides specific examples.
 
 Commands Extension
 -------------------
@@ -305,4 +305,3 @@ Example: ::
 
 
 This could then be used as ``?git push origin master``.
-
